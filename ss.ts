@@ -29,10 +29,8 @@ export function logPerson(person: Person) {
     );
 }
 
-// Utility type to exclude the 'type' property from the criteria
 type PartialExcludingType < T > = Omit < Partial < T > , 'type' > ;
 
-// Overload signatures for filterPersons
 export function filterPersons(persons: Person[], personType: 'user', criteria: PartialExcludingType < User > ): User[];
 export function filterPersons(persons: Person[], personType: 'admin', criteria: PartialExcludingType < Admin > ): Admin[];
 export function filterPersons(persons: Person[], personType: string, criteria: unknown): unknown[] {
